@@ -1,36 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Amr Ahmed - Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js 15, featuring smooth animations, internationalization, and a beautiful user experience. This portfolio showcases my skills, projects, experience, and services as a Frontend Developer.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- 🌍 **Internationalization (i18n)** - Full support for English and Arabic with RTL layout
+- 🎨 **Dark/Light Theme** - Seamless theme switching with persistent preferences
+- 🎭 **Smooth Animations** - Beautiful page transitions and micro-interactions powered by Framer Motion
+- 🖱️ **Custom Cursor** - Interactive animated cursor for enhanced user experience
+- 📱 **Fully Responsive** - Optimized for all devices and screen sizes
+- ⚡ **Performance Optimized** - Built with Next.js Turbopack for lightning-fast development
+- 🔍 **SEO Friendly** - Optimized metadata and semantic HTML
+- 🎯 **Section Navigation** - Smooth scrolling navigation with active section highlighting
+- 💼 **Project Showcase** - Filterable project gallery with live demos and source code links
+- 📄 **Resume Download** - Easy access to downloadable resume
+
+## 🛠️ Tech Stack
+
+### Core Technologies
+- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
+- **[React 19](https://react.dev/)** - UI library
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
+
+### Key Libraries & Tools
+- **[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
+- **[Motion (Framer Motion)](https://www.framer.com/motion/)** - Animation library
+- **[Radix UI](https://www.radix-ui.com/)** - Accessible component primitives
+- **[Lucide React](https://lucide.dev/)** - Beautiful icon library
+- **[Iconify](https://iconify.design/)** - Icon framework
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   └── [locale]/          # Internationalized routes
+│       ├── layout.tsx     # Root layout with providers
+│       └── page.tsx       # Main page component
+├── components/
+│   ├── animations/        # Animation configurations
+│   ├── layout/           # Layout components (Sidebar, Providers)
+│   ├── sections/         # Page sections (Hero, Skills, Projects, etc.)
+│   ├── shared/           # Reusable components
+│   └── ui/               # UI components (Button, Card, Sheet)
+├── contexts/             # React contexts (Theme)
+├── data/                 # Static data (projects, skills, experience)
+├── i18n/                 # Internationalization configuration
+├── lib/                  # Utility functions
+├── messages/             # Translation files (en.json, ar.json)
+└── types/                # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/portfolio.git
+   cd portfolio
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-## Deploy on Vercel
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Build for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm start
+```
+
+## 🌐 Internationalization
+
+The portfolio supports multiple languages:
+- **English** (`/en`) - Default locale
+- **Arabic** (`/ar`) - With RTL layout support
+
+Language files are located in `src/messages/` directory. To add a new language:
+1. Create a new JSON file in `src/messages/`
+2. Add the locale to `src/i18n/routing.ts`
+3. Update translations accordingly
+
+## 🎨 Customization
+
+### Updating Content
+
+- **Personal Information**: Edit `src/data/site.ts`
+- **Projects**: Modify `src/data/projects.ts`
+- **Skills**: Update `src/data/skills.ts`
+- **Experience**: Edit `src/data/experience.ts`
+- **Services**: Update `src/data/services.ts`
+
+### Styling
+
+The project uses Tailwind CSS v4. Customize colors, fonts, and other design tokens in `src/app/globals.css` or through Tailwind configuration.
+
+### Theme
+
+Theme customization is handled through the `ThemeContext` in `src/contexts/ThemeContext.tsx`. Modify theme colors and preferences there.
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🔗 Links
+
+- **Live Demo**: [Your Portfolio URL]
+- **Resume**: Available for download in the sidebar
+
+## 📄 License
+
+This project is private and proprietary.
+
+## 👨‍💻 Author
+
+**Amr Ahmed**
+- Frontend Developer specializing in React, Next.js, and modern web technologies
+- Passionate about creating beautiful, performant, and accessible web experiences
+
+---
+
+⭐ If you find this portfolio inspiring, feel free to star the repository!
