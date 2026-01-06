@@ -1,0 +1,152 @@
+{
+  "sidebar": {
+    "title": "Amr Ahmed",
+    "allSections": "All Sections",
+    "hero": "Hero",
+    "skills": "Skills",
+    "services": "Services",
+    "experience": "Experience",
+    "projects": "Projects",
+    "theme": "Theme",
+    "language": "Language",
+    "downloadResume": "Download Resume"
+  },
+  "hero": {
+    "intro": "Hi, I'm",
+    "name": "Amr Ahmed",
+    "title": "Front-End Developer",
+    "description": "Front-End Developer expert in React JS, JavaScript, TypeScript, and Redux, with extensive experience delivering high-quality, SEO-friendly web applications. Skilled in creating responsive interfaces using HTML5, CSS3, and modern front-end tools. Proven track record enhancing UI/UX and ensuring seamless experiences across devices. Experienced in Agile environments, contributing innovative solutions and optimizing performance.",
+    "download": "Download Resume",
+    "hire": "Hire Me",
+    "photoAlt": "Profile photo"
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I work with",
+    "items": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "react": "React",
+      "nextjs": "Next.js",
+      "tailwind": "Tailwind",
+      "git": "Git"
+    }
+  },
+  "services": {
+    "title": "My Services",
+    "subtitle": "What I can build for you",
+    "items": {
+      "responsiveWeb": {
+        "title": "Responsive Website Development",
+        "subtitle": "Mobile-First Interfaces",
+        "description": "Building modern, responsive websites that look great on all devices and screen sizes."
+      },
+      "figmaToCode": {
+        "title": "Figma to Code",
+        "subtitle": "Pixel-Perfect UI",
+        "description": "Turning your designs into clean, reusable components with accurate spacing, typography, and layout."
+      },
+      "reactApps": {
+        "title": "Front-End Web Apps",
+        "subtitle": "React / SPA Development",
+        "description": "Creating interactive single-page applications with scalable structure and smooth user experience."
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "subtitle": "Speed & Lighthouse",
+        "description": "Improving load times and Core Web Vitals with optimization techniques like lazy loading and code splitting."
+      },
+      "accessibility": {
+        "title": "Accessibility Improvements",
+        "subtitle": "WCAG-Friendly UI",
+        "description": "Enhancing usability with semantic HTML, keyboard navigation, and accessible components."
+      },
+      "apiIntegration": {
+        "title": "API Integration",
+        "subtitle": "REST / GraphQL",
+        "description": "Connecting front-end interfaces to APIs and handling loading, error, and empty states properly."
+      }
+    }
+  },
+  "experience": {
+    "title": "My Experience",
+    "subtitle": "My professional journey",
+    "items": {
+      "companyA": {
+        "company": "Freelance",
+        "period": "August 2022 – August 2024",
+        "role": "Front-end Developer",
+        "bullets": [
+          "Built responsive, accessible UI components and pages based on Figma designs using HTML, CSS, JavaScript and React.",
+          "Collaborated with a cross-functional team (UI/UX, backend, QA) using Agile workflow: sprint planning, standups, and task tracking.n",
+          "Translated design systems into reusable components, improving UI consistency across multiple screens.",
+          "Integrated REST APIs and handled loading/error states to deliver smooth user experiences.",
+          "Optimized performance (lazy loading, code splitting, asset optimization), improving Lighthouse scores and page speed.",
+          "Ensured cross-browser compatibility and mobile-first responsiveness across modern devices.",
+          "Participated in code reviews, followed team conventions, and maintained clean, scalable code.",
+          "Fixed UI bugs and handled enhancements based on QA feedback and client requests",
+          "Used Git/GitHub for branching, pull requests, and release coordination."
+        ]
+      },
+      "companyB": {
+        "company": "Route academy",
+        "period": "Septemper 2023 - March 2024 ",
+        "role": "Trainee As Front-end Developer",
+        "bullets": [
+          "Developed SPA features using React (components, props/state, hooks).",
+          "Created reusable components and maintained a consistent design system across pages.",
+          "Consumed REST APIs with fetch/axios, implemented pagination/filtering, and error handling.",
+          "Managed routing with React Router and built dynamic UI based on URL parameters.",
+          "Applied basic state management patterns and improved code readability/structure.",
+          "Wrote clean, maintainable code and participated in code reviews with the team."
+        ]
+      },
+      "projects": {
+        "title": "My Projects",
+        "subtitle": "Recent work I've done",
+        "filters": {
+          "all": "All",
+          "ecommerce": "E-commerce",
+          "dashboards": "Dashboards",
+          "landingPages": "Landing Pages",
+          "Apps": "Apps"
+        },
+        "actions": {
+          "livePreview": "Live Preview",
+          "viewRepo": "View Repo"
+        },
+        "hoverHint": "Hover to flip",
+        "flipHint": "Click / tap to flip back",
+        "items": {
+          "ecommercePlatform": {
+            "title": "E-commerce Platform",
+            "description": "Modern store experience with scalable architecture.",
+            "imageAlt": "E-commerce project preview"
+          },
+          "analyticsDashboard": {
+            "title": "Analytics Dashboard",
+            "description": "Data-driven dashboard with charts and insights.",
+            "imageAlt": "Dashboard project preview"
+          },
+          "modernLandingPage": {
+            "title": "Modern Landing Page",
+            "description": "Beautiful landing page with smooth animations and responsive design.",
+            "imageAlt": "Landing page project preview"
+          },
+          "weatherapp": {
+            "title": "Weather App",
+            "description": "A responsive weather application providing real-time forecasts and prayer times based on user location. and verses from the Quran.",
+            "imageAlt": "Weather App project preview"
+          },
+          "education": {
+            "title": "Education App",
+            "description": "SkillBase is a modern online learning platform UI that showcases 350+ curated courses with clean cards, category filters, and ratings, focused on helping users learn and develop skills anywhere through an intuitive, responsive interface",
+            "imageAlt": "Education App project preview"
+          }
+        }
+      }
+    }
+  }
+}
