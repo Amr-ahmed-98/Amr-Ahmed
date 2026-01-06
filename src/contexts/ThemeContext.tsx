@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState, useCallback } from "react";
 
 type Theme = "light" | "dark";
 
@@ -20,13 +20,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     else document.documentElement.classList.remove("dark");
   };
 
-  const setTheme = (newTheme: Theme) => {
+  const setTheme = useCallback((newTheme: Theme) => {
     setThemeState(newTheme);
     localStorage.setItem("theme", newTheme);
     applyThemeClass(newTheme);
-  };
+  }, []);
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const toggleTheme = useCallback(() => {
+    setThemeState((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", newTheme);
+      applyThemeClass(newTheme);
+      return newTheme;
+    });
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
@@ -39,7 +46,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     applyThemeClass(initialTheme);
   }, []);
 
-  const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme]);
+  const value = useMemo(() => ({ theme, toggleTheme, setTheme }), [theme, toggleTheme, setTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

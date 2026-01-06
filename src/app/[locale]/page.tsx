@@ -16,11 +16,12 @@ export default function Page() {
   const [activeSection, setActiveSection] = useState<SectionId>("all");
 
   useEffect(() => {
-    const handleSectionChange = (event: CustomEvent<{ section: SectionId }>) => {
-      setActiveSection(event.detail.section);
+    const handleSectionChange = (event: Event) => {
+      const customEvent = event as CustomEvent<{ section: SectionId }>;
+      setActiveSection(customEvent.detail.section);
     };
-    window.addEventListener("sectionChange" as any, handleSectionChange);
-    return () => window.removeEventListener("sectionChange" as any, handleSectionChange);
+    window.addEventListener("sectionChange", handleSectionChange);
+    return () => window.removeEventListener("sectionChange", handleSectionChange);
   }, []);
 
   const sections = useMemo(

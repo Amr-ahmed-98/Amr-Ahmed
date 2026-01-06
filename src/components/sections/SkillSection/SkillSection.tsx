@@ -1,6 +1,6 @@
 "use client";
 
-import { easeInOut, easeOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { Icon } from "@iconify/react";
 
@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 import { SKILLS } from "@/assets/icons";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import {
-    sectionHeaderAnimation,
     staggerContainer,
     itemFadeIn,
     hoverLift,
