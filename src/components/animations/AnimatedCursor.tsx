@@ -19,41 +19,56 @@ const MODE: Record<
 export function AnimatedCursor() {
     const reduceMotion = useReducedMotion();
 
-    // Only enable for real mouse devices (desktop/laptop)
+    // enabled only for desktops/mouse devices
     const [enabled, setEnabled] = useState(false);
 
-    // Cursor state (changes only on hover/click, not per-move)
+    // changes only on hover/click (not per-mouse-move)
     const [mode, setMode] = useState<CursorMode>("default");
     const [down, setDown] = useState(false);
     const [label, setLabel] = useState<string | null>(null);
 
-    // Track pointer position via MotionValues (no React re-render)
+    // pointer position (MotionValue => no React re-render)
     const x = useMotionValue(-100);
     const y = useMotionValue(-100);
 
-    // Smooth trailing ring
+    // smooth trailing ring
     const ringX = useSpring(x, { stiffness: 700, damping: 45, mass: 0.7 });
     const ringY = useSpring(y, { stiffness: 700, damping: 45, mass: 0.7 });
 
-    // Throttle pointermove -> only 1 update per frame
+    // throttle pointermove to 1 per animation frame
     const raf = useRef<number | null>(null);
     const latest = useRef({ x: -100, y: -100 });
 
+    // Enable only for real mouse/hover devices
     useEffect(() => {
         const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
         const update = () => setEnabled(mql.matches);
+
         update();
         mql.addEventListener?.("change", update);
         return () => mql.removeEventListener?.("change", update);
     }, []);
 
+    // Restore last cursor position after route/locale switches
+    useEffect(() => {
+        if (!enabled) return;
+
+        const saved = (window as any).__cursorPos as { x: number; y: number } | undefined;
+        if (saved) {
+            x.set(saved.x);
+            y.set(saved.y);
+        }
+    }, [enabled, x, y]);
+
+    // Global pointer + hover listeners
     useEffect(() => {
         if (!enabled) return;
 
         const onMove = (e: PointerEvent) => {
             if (e.pointerType !== "mouse") return;
-
             latest.current = { x: e.clientX, y: e.clientY };
+            (window as any).__cursorPos = latest.current;
+
             if (raf.current != null) return;
 
             raf.current = requestAnimationFrame(() => {
@@ -81,7 +96,6 @@ export function AnimatedCursor() {
         };
 
         const onOut = (e: PointerEvent) => {
-            // If moving between children inside the same hoverable element, don’t reset.
             const target = e.target as HTMLElement | null;
             const related = e.relatedTarget as HTMLElement | null;
 
@@ -110,15 +124,17 @@ export function AnimatedCursor() {
             window.removeEventListener("pointerdown", onDown);
             window.removeEventListener("pointerup", onUp);
             if (raf.current != null) cancelAnimationFrame(raf.current);
+            raf.current = null;
         };
     }, [enabled, x, y]);
 
     if (!enabled) return null;
 
-    // Respect prefers-reduced-motion: show only a tiny dot (optional)
+    // Respect prefers-reduced-motion: show just a small dot
     if (reduceMotion) {
         return (
             <motion.div
+                dir="ltr"
                 aria-hidden="true"
                 className="pointer-events-none fixed inset-0 z-[9999]"
             >
@@ -137,17 +153,17 @@ export function AnimatedCursor() {
     const dotSize = Math.round(cfg.dot * (down ? 0.85 : 1));
 
     return (
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[9999]">
+        <div
+            dir="ltr"
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-[9999]"
+        >
             {/* Trailing ring */}
             <motion.div
                 className="absolute rounded-full border border-primary/50 bg-primary/10"
                 style={{ x: ringX, y: ringY, willChange: "transform" }}
                 transformTemplate={(_, generated) => `${generated} translate(-50%, -50%)`}
-                animate={{
-                    width: ringSize,
-                    height: ringSize,
-                    opacity: cfg.ringOpacity,
-                }}
+                animate={{ width: ringSize, height: ringSize, opacity: cfg.ringOpacity }}
                 transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.7 }}
             />
 
@@ -156,15 +172,11 @@ export function AnimatedCursor() {
                 className="absolute rounded-full bg-primary"
                 style={{ x, y, willChange: "transform" }}
                 transformTemplate={(_, generated) => `${generated} translate(-50%, -50%)`}
-                animate={{
-                    width: dotSize,
-                    height: dotSize,
-                    opacity: cfg.dotOpacity,
-                }}
+                animate={{ width: dotSize, height: dotSize, opacity: cfg.dotOpacity }}
                 transition={{ type: "spring", stiffness: 900, damping: 40, mass: 0.5 }}
             />
 
-            {/* Optional label (appears on hover if you set data-cursor-text) */}
+            {/* Optional label */}
             {label ? (
                 <motion.div
                     className="absolute select-none rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground"
