@@ -2,10 +2,10 @@
 
 A modern, responsive portfolio website built with Next.js 15, featuring smooth animations, internationalization, and a beautiful user experience. This portfolio showcases my skills, projects, experience, and services as a Frontend Developer.
 
-![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.2.3-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)
 
 ## ✨ Features
 
@@ -23,17 +23,26 @@ A modern, responsive portfolio website built with Next.js 15, featuring smooth a
 ## 🛠️ Tech Stack
 
 ### Core Technologies
-- **[Next.js 15](https://nextjs.org/)** - React framework with App Router
-- **[React 19](https://react.dev/)** - UI library
-- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Next.js 16.1.1](https://nextjs.org/)** - React framework with App Router
+- **[React 19.2.3](https://react.dev/)** - UI library
+- **[TypeScript 5](https://www.typescriptlang.org/)** - Type-safe JavaScript
 - **[Tailwind CSS v4](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[PostCSS 4](https://postcss.org/)** - CSS transformation tool
 
 ### Key Libraries & Tools
-- **[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
-- **[Motion (Framer Motion)](https://www.framer.com/motion/)** - Animation library
-- **[Radix UI](https://www.radix-ui.com/)** - Accessible component primitives
-- **[Lucide React](https://lucide.dev/)** - Beautiful icon library
-- **[Iconify](https://iconify.design/)** - Icon framework
+- **[next-intl 4.6.1](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
+- **[Motion 12.23.26](https://www.framer.com/motion/)** - Animation library
+- **[Radix UI](https://www.radix-ui.com/)** - Accessible component primitives (v1.1.15 for Dialog, v1.2.4 for Slot)
+- **[Lucide React 0.546.0](https://lucide.dev/)** - Beautiful icon library
+- **[Iconify React 6.0.2](https://iconify.design/)** - Icon framework
+- **[class-variance-authority 0.7.1](https://cva.style/)** - CSS variant composition
+- **[tailwind-merge 3.3.1](https://github.com/dcastil/tailwind-merge)** - Tailwind CSS class merging utility
+- **[clsx 2.1.1](https://github.com/lukeed/clsx)** - Utility for constructing className strings
+- **[tw-animate-css 1.4.0](https://www.npmjs.com/package/tw-animate-css)** - Tailwind animation utilities
+
+### Development Tools
+- **[ESLint 9](https://eslint.org/)** - JavaScript linter
+- **[Node.js 20](https://nodejs.org/)** - JavaScript runtime
 
 ## 📁 Project Structure
 
